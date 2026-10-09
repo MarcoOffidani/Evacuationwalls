@@ -2,7 +2,7 @@ import os
 import numpy as np
 from gymnasium.wrappers import FrameStack, FlattenObservation
 from stable_baselines3 import PPO
-import wandb
+from src.optional_wandb import wandb
 
 from src.env import EvacuationEnv, RelativePosition, constants
 from src import params

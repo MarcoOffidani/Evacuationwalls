@@ -53,6 +53,8 @@ def parse_args(inline_mode=False, request=""):
         help='explicit variant label to include in experiment names')
     experiment_params.add_argument('--output-dir', type=str, default=None,
         help='per-run output directory for runs.csv, escaped_counts.csv, models, TensorBoard, png, and gif')
+    experiment_params.add_argument('--eval-output-dir', type=str, default=None,
+        help='evaluation-only output directory; used instead of --output-dir when --eval-only is set')
     experiment_params.add_argument('--checkpoint-dir', type=str, default=None,
         help='per-run checkpoint directory')
     experiment_params.add_argument('--log-dir', type=str, default=None,

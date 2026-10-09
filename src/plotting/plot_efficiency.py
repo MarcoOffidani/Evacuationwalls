@@ -15,7 +15,7 @@ from main import setup_env
 from src.utils import parse_args
 from src.plotting.paths2models import *
 
-import wandb
+from src.optional_wandb import wandb
 wandb.init(mode="disabled")
 
 # Define params

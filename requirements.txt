@@ -10,7 +10,7 @@ stable-baselines3==2.8.0
 
 # Logging / tracking
 tensorboard>=2.16,<2.21
-wandb>=0.17,<1.0
+#wandb>=0.17,<1.0
 
 # Utils
 tqdm>=4.66

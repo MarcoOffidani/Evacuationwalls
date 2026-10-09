@@ -101,7 +101,11 @@ def seed_everything(seed, using_cuda=False):
 
 
 def configure_output_paths(args, experiment_name):
-    output_dir = args.output_dir or os.path.join("saved_data", "runs", experiment_name)
+    output_dir = (
+        args.eval_output_dir
+        if args.eval_only and args.eval_output_dir
+        else args.output_dir or os.path.join("saved_data", "runs", experiment_name)
+    )
     params.SAVE_PATH_OUTPUT = output_dir
     params.SAVE_PATH_MODELS = os.path.join(output_dir, "models")
     params.SAVE_PATH_TBLOGS = os.path.join(output_dir, "tb-logs")
@@ -208,14 +212,16 @@ def setup_wandb(args, experiment_name):
         config=save_config
     )
 
-def evaluate_model(model, env, n_episodes):
-    for _ in range(n_episodes):
+def evaluate_model(model, env, n_timesteps):
+    completed_timesteps = 0
+    while completed_timesteps < n_timesteps:
         obs, _ = env.reset()
         terminated = False
         truncated = False
-        while not (terminated or truncated):
+        while not (terminated or truncated) and completed_timesteps < n_timesteps:
             action, _ = model.predict(obs, deterministic=True)
             obs, _, terminated, truncated, _ = env.step(action)
+            completed_timesteps += 1
 
 if __name__ == "__main__":
     #print("first line")
@@ -233,7 +239,7 @@ if __name__ == "__main__":
     #model.learning_rate = 0.0
     if args.eval_only:
         try:
-            evaluate_model(model, env, args.n_episodes)
+            evaluate_model(model, env, args.learn_timesteps)
         finally:
             env.close()
         raise SystemExit(0)

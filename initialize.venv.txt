@@ -1,3 +1,4 @@
-cd /mnt/c/Users/Asus/Documents/GitHub/Sheperd-dog
+cd /mnt/c/Users/marco/Projects/Evacuationwalls
+cd C:\Users\marco\Projects\Evacuationwalls
 
-source .venv/bin/activate
+.venv\Scripts\activate

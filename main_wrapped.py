@@ -2,7 +2,7 @@
 import os
 import numpy as np
 from stable_baselines3 import PPO, SAC
-import wandb
+from src.optional_wandb import wandb
 
 from src.env import EvacuationEnv
 from src.env import constants

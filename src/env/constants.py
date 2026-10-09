@@ -4,7 +4,7 @@
 
 NUM_PEDESTRIANS = 60                      # ! number of pedestrians
 EPS = 1e-8 
-ENSLAVING_DEGREE = 1.0                    # ! leader's enslaving degree
+ENSLAVING_DEGREE = 0.0                    # ! leader's enslaving degree
 
 # Area params
 WIDTH = 1.                                  # ! geometry of environment space: width
@@ -42,7 +42,7 @@ SAVE_PATH_GIFF = 'saved_data/giff'
 SAVE_PATH_PNG  = 'saved_data/png'
 SAVE_PATH_LOGS = 'saved_data/logs'
 
-WALL_HOLE_HALF_WIDTH = 0.15                  # put 0.5 in order to remove the wall  
+WALL_HOLE_HALF_WIDTH = 0.25                  # put 0.5 in order to remove the wall  
 WALLS = [(( -0.5 + WALL_HOLE_HALF_WIDTH, 0), (0.5 - WALL_HOLE_HALF_WIDTH, 0))]
 #WALLS = [((-1 + 1.5*WALL_HOLE_HALF_WIDTH, 0), (1 - 1.5*WALL_HOLE_HALF_WIDTH, 0)),((-1 , 0), (-1 + 0.5*WALL_HOLE_HALF_WIDTH, 0)), ((1 - 0.5*WALL_HOLE_HALF_WIDTH, 0),(1,0))]
 WALL2 = [((-1 , 0), (-0.5  - WALL_HOLE_HALF_WIDTH, 0))]
